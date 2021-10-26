@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                     <label class="col-form-label">Corpo da página</label>
-                    <textarea name="body" class="form-control">{{old('body')}}</textarea>
+                    <textarea name="body" class="form-control" id="bodyfield">{{old('body')}}</textarea>
             </div>
             <div class="form-group">
                 <label class="col-form-label"></label>
@@ -41,5 +41,12 @@
     </div>
 </div>
 
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+<script>
+    CKEDITOR.replace('bodyfield');
+</script>
 
+{{-- {
+        stylesSet = '{{asset('assets/css/content.css')}}',
+    } --}}
 @endsection
