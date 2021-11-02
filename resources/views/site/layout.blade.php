@@ -1,125 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="zxx">
+
 <head>
-	<meta charset="UTF-8">
-	<title>@yield('title')</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="@yield('description')" />
-	<meta name="keywords" content="" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Facebook integration -->
-	<meta property="og:title" content="@yield('title')"/>
-	<meta property="og:description" content="@yield('description')"/>
-	<meta property="og:url" content=""/>
 
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="{{asset('assets/css/owl.carousel.css')}}">
-	<link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/gijgo.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/slicknav.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('assets/css/content.css')}}"> --}}
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
+
 <body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
 
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-2">
+                            <div class="logo">
+                                <a href="/">
+                                    <img src="{{asset('assets/img/logo.png')}}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        @foreach ($front_menu as $menuslug => $menutitle)
+                                        <li><a class="active" href="{{$menuslug}}">{{$menutitle}}</a></li>
+                                        @endforeach
 
-<div id="page-wrap">
-	<!-- ==========================================================================================================
-													   HERO
-		 ========================================================================================================== -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
 
-	<div id="fh5co-hero-wrapper">
-		<nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
-			<a class="navbar-brand" href="">Logo</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav nav-items-center ml-auto mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-features').goTo();return false;">Features</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#" onclick="$('#fh5co-reviews').goTo();return false;">Reviews</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"  onclick="$('#fh5co-download').goTo();return false;">Download</a>
-					</li>
-				</ul>
-				<div class="social-icons-header">
-					<a href="https://www.facebook.com/fh5co"><i class="fab fa-facebook-f"></i></a>
-					<a href="https://freehtml5.co"><i class="fab fa-instagram"></i></a>
-					<a href="https://www.twitter.com/fh5co"><i class="fab fa-twitter"></i></a>
-				</div>
-			</div>
-		</nav>
-
-		<div class="container fh5co-hero-inner">
-			<h1 class="animated fadeIn wow" data-wow-delay="0.4s">A Free HTML5 App Template Built with Bootstrap 4</h1>
-			<p class="animated fadeIn wow" data-wow-delay="0.67s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et voluptates, aliquid soluta distinctio dolorum tenetur. </p>
-			<button class="btn btn-md download-btn-first wow fadeInLeft animated" data-wow-delay="0.85s" onclick="$('#fh5co-download').goTo();return false;">Download</button>
-			<a class="btn btn-md features-btn-first animated fadeInLeft wow" data-wow-delay="0.95s" href="">Features</a>
-			<img class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s" src="{{asset('assets/img/phone-image.png')}}" alt="Smartphone">
-		</div>
-
-
-	</div> <!-- first section wrapper -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
 
 
     @yield('content')
 
-	<!-- ==========================================================================================================
-                                               SECTION 7 - SUB FOOTER
-    ========================================================================================================== -->
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="/">
+                                    <img src="{{asset('assets/img/logo.png')}}" alt="">
+                                </a>
+                            </div>
+                            <p>
 
-	<footer class="footer-outer">
-		<div class="container footer-inner">
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
 
-			<div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
-				<div class="column-1-3">
-					<h1>App</h1>
-				</div>
-				<div class="column-2-3">
-					<nav class="footer-nav">
-						<ul>
-							<a href="#" onclick="$('#fh5co-hero-wrapper').goTo();return false;"><li>Home</li></a>
-							<a href="#" onclick="$('#fh5co-features').goTo();return false;"><li>Features</li></a>
-							<a href="#" onclick="$('#fh5co-reviews').goTo();return false;"><li>Reviews</li></a>
-							<a href="#" onclick="$('#fh5co-download').goTo();return false;"><li class="active">Download</li></a>
-						</ul>
-					</nav>
-				</div>
-				<div class="column-3-3">
-					<div class="social-icons-footer">
-						<a href="https://www.facebook.com/fh5co"><i class="fab fa-facebook-f"></i></a>
-						<a href="https://freehtml5.co"><i class="fab fa-instagram"></i></a>
-						<a href="https://www.twitter.com/fh5co"><i class="fab fa-twitter"></i></a>
-					</div>
-				</div>
-			</div>
+                        </div>
+                    </div>
 
-			<span class="border-bottom-footer"></span>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                    Menu
+                            </h3>
+                            <ul>
+                                 @foreach ($front_menu as $menuslug => $menutitle)
+                                    <li><a class="active" href="{{$menuslug}}">{{$menutitle}}</a></li>
+                                @endforeach
 
-			<p class="copyright">Desenvolvido por <a href="https://lhscode.com.br" target="_blank">LHSCODE</a>.</p>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                    Downloads
+                            </h3>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Download from Apple Store
 
-		</div>
-	</footer>
+                                    </a>
+                                </li>
+                                <li><a href="#">
+                                        Download from Play Store
+                                    </a>
+                                </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/ footer end  -->
 
-</div> <!-- main page wrapper -->
+    <!-- JS here -->
+    <script src="{{asset('assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
+    <script src="{{asset('assets/js/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('assets/js/ajax-form.js')}}"></script>
+    <script src="{{asset('assets/js/waypoints.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('assets/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('assets/js/scrollIt.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{asset('assets/js/wow.min.js')}}"></script>
+    <script src="{{asset('assets/js/nice-select.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.slicknav.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins.js')}}"></script>
+    <script src="{{asset('assets/js/gijgo.min.js')}}"></script>
 
-	<script src="{{asset('js/jquery.min.js')}}"></script>
-	<script src="{{asset('js/bootstrap.js')}}"></script>
-	<script src="{{asset('js/owl.carousel.js')}}"></script>
-	<script src="{{asset('js/wow.min.js')}}"></script>
-	<script src="{{asset('js/main.js')}}"></script>
+    <!--contact js-->
+    <script src="{{asset('assets/js/contact.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.ajaxchimp.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.form.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('assets/js/mail-script.js')}}"></script>
+
+    <script src="{{asset('assets/js/main.js')}}"></script>
 </body>
+
 </html>

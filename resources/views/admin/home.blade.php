@@ -103,7 +103,7 @@
                 data: {
                     datasets: [{
                         data: {{$pageValues}},
-                        backgroundColor: '#8e44ad'
+                        backgroundColor: {!! $pagePieColors !!}
                     }],
                     labels: {!! $pageLabels !!},
                 },

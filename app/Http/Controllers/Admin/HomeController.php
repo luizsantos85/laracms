@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Visitor;
 use App\Page;
 use App\User;
-use Illuminate\Support\Arr;
 
 class HomeController extends Controller
 {
@@ -48,16 +47,21 @@ class HomeController extends Controller
 
         //Contagem para o grafico
         $pagePie = [];
+        $pagePieColors = [];
         $visitsAll = Visitor::selectRaw('page, count(page) as c')
             ->where('date_access', '>=', $dateInterval)
             ->groupBy('page')->get();
 
         foreach ($visitsAll as $visit) {
             $pagePie[ $visit['page'] ] = intval($visit['c']);
+            $pagePieColors[] = 'rgba('.rand(0, 255).', '.rand(0, 255).', '.rand(0, 255).')';
+
         }
 
         $pageLabels = json_encode(array_keys($pagePie));
         $pageValues = json_encode(array_values($pagePie));
+        $pagePieColors = json_encode(array_values($pagePieColors));
+
 
 
         return view('admin.home', [
@@ -67,6 +71,7 @@ class HomeController extends Controller
             'userCount' => $userCount,
             'pageLabels'=> $pageLabels,
             'pageValues' => $pageValues,
+            'pagePieColors' => $pagePieColors,
             'dateInterval' => $interval
         ]);
     }

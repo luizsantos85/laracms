@@ -41,12 +41,18 @@
     </div>
 </div>
 
-<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
-<script>
-    CKEDITOR.replace('bodyfield');
-</script>
-
-{{-- {
-        stylesSet = '{{asset('assets/css/content.css')}}',
-    } --}}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#bodyfield',
+        plugins:['link','table','image','autoresize','lists'],
+        toolbar:'undo redo | formatselect | bold italic backcolor| alignleft aligncenter alignright | table | link image',
+        content_css: [
+            '{{asset('assets/css/content.css')}}',
+        ],
+        images_upload_url:'{{route('imageupload')}}',
+        images_upload_credentials: true,
+        convert_urls:false
+      });
+    </script>
 @endsection
