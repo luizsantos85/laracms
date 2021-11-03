@@ -9,8 +9,10 @@ use App\Visitor;
 
 class PageController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
+        $slug = '/';
+        $this->countVisit($request->ip(), $slug);
         return view('site.home');
     }
 
@@ -23,13 +25,12 @@ class PageController extends Controller
         }
 
         $this->countVisit($request->ip(), $slug);
-
         return view('site.page', [
             'page' =>$page,
         ]);
     }
 
-    private function countVisit($ip, $page)
+    private function countVisit(string $ip, string $page)
     {
         $timeLimit = date('Y-m-d H:i:s', strtotime('-60 minutes'));
 

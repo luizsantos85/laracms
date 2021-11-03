@@ -192,7 +192,7 @@ return [
     'logout_url' => 'painel/logout',
     'login_url' => 'painel/login',
     'register_url' => null, //painel/register, //alterei por questões de gosto
-    'password_reset_url' => 'password/reset',
+    'password_reset_url' => 'painel/resetlogin',
     'password_email_url' => 'password/email',
     'profile_url' => false,
 
